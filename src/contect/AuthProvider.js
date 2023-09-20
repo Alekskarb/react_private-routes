@@ -7,13 +7,16 @@ export function useAuth() {
 }
 
 export function AuthProvider({children}) {
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState(()=> localStorage.getItem('user') || null);
+    console.log(user)
     const signIn = (newUser, callback) => {
         setUser(newUser);
+        localStorage.setItem('user', newUser)
         callback()
     }
     const signOut = (callback) => {
         setUser(null);
+        localStorage.removeItem('user');
         callback()
     }
 

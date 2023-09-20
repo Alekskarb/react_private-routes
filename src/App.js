@@ -6,6 +6,7 @@ import Users from "./pages/Users";
 import About from "./pages/About";
 import {AuthProvider} from "./contect/AuthProvider";
 import Login from "./pages/Login";
+import {PrivateRoute} from "./component/PrivateRoute";
 
 function App() {
     return (
@@ -15,7 +16,7 @@ function App() {
                     <Route element={<MainLayout/>}>
                         <Route path='/' element={<Home/>}/>
                         <Route path='/about' element={<About/>}/>
-                        <Route path='/users' element={<Users/>}/>
+                        <Route path='/users' element={<PrivateRoute> <Users/> </PrivateRoute>}/>
                     </Route>
                     <Route path='/login' element={<Login/>}/>
                 </Routes>
