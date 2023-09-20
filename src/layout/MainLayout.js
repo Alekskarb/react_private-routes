@@ -1,9 +1,11 @@
 import {Link, Outlet,  useSearchParams} from "react-router-dom";
+import {AuthStatus} from "../component/AuthStatus";
 
 function MainLayout() {
 
     return (
         <>
+            <AuthStatus/>
             <ul>
                 <li><Link to='/'>Home</Link></li>
                 <li><Link to='/about'>About</Link></li>
